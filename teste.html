@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sea Mooca Gourmet - Peixes frescos e congelados, empório e receitas exclusivas. Descubra o sabor dos mares!">
+    <meta name="keywords" content="peixes frescos, frutos do mar, empório, receitas, Sea Mooca Gourmet">
+    <meta name="author" content="Gabriel Dantas">
+    <title>Sea Mooca Gourmet</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./imagens/logo (2).png" type="image/png">
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #333333;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 150px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            padding: 5px 10px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li:hover a, nav ul li.active a {
+            color: #f97316;
+        }
+
+        /* Seção Inicial */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('imagens/ai-generated-9061477_1920.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .hero-section .text-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            color: #fff;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .hero-section .text-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #f97316;
+        }
+
+        .hero-section .text-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hero-section .button-container .order-button {
+            display: inline-block;
+            background-color: #ff7f00;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .hero-section .button-container .order-button:hover {
+            background-color: #e06b00;
+            transform: scale(1.05);
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #353333;
+            color: #f97316;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-logo img {
+            width: 150px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            text-align: left;
+            flex-wrap: wrap;
+        }
+
+        .footer-section h4 {
+            color: orange;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-section p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="imagens/logo (2).png" alt="Logo Sea Mooca">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#peixescongelados">Peixes Congelados</a></li>
+                <li><a href="#peixesfrescos">Peixes Frescos</a></li>
+                <li><a href="#emporio">Empório</a></li>
+                <li><a href="#receitas">Receitas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Inicial -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="text-content">
+            <h1>Bem-vindo à Sea Mooca Gourmet!</h1>
+            <p>Somos especializados em peixes frescos e congelados, cuidadosamente escolhidos para garantir sabor e excelência. Nosso maior compromisso é oferecer a você a mais alta qualidade em frutos do mar.</p>
+            <p>Venha nos visitar e descubra o verdadeiro sabor dos mares!</p>
+            <div class="button-container">
+                <a href="https://api.whatsapp.com/send?phone=5511919760799&text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" class="order-button">Faça seu Pedido!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-logo">
+            <img src="imagens/logo (2).png" alt="Sea Mooca">
+        </div>
+        <div class="footer-info">
+            <div class="footer-section">
+                <h4>Telefone</h4>
+                <p>(11) 55657-0987</p>
+            </div>
+            <div class="footer-section">
+                <h4>Endereço</h4>
+                <p>Rua Conde Prates, 62 - SP</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <p>
+                    <a href="https://www.instagram.com/seamoocaoficial" target="_blank">@seamoocaoficial</a><br>
+                    <a href="https://www.facebook.com/seamoocaoficial" target="_blank">@seamoocaoficial</a>
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Horário de Atendimento</h4>
+                <p>Ter a Sáb - 08:00 - 19:00<br>Dom - 08:00 - 14:00</p>
+            </div>
+        </div>
+        <p>&copy; 2024 - Criado por Gabriel Dantas</p>
+    </footer>
+</body>
+</html>

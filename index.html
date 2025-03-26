@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  
+    <!-- Outros links de CSS que você já usa -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="icon" href="./imagens/logo (2).png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Mooca Gourmet</title>
+    <!-- Estilo da Página -->
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #585757;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+  display: flex;
+  justify-content: space-between; /* Garante que os itens fiquem nas extremidades */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 100px; /* Ajuste o tamanho da logo conforme necessário */
+}
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            padding: 5px 10px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li:hover a, nav ul li.active a {
+            color: #f97316; /* Cor de destaque */
+        }
+
+        nav ul li::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: #000000;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li:hover::after, nav ul li.active::after {
+            width: 100%;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            flex: 1; /* Ocupa todo o espaço disponível para empurrar o rodapé para baixo */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px;
+            min-height: 500px; /* Adicionei altura mínima para garantir espaço extra */
+        }
+
+        .text-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+        .text-content .logo-img {
+    margin-bottom: 10px; /* Espaço abaixo da logo */
+    height: 400px; /* Tamanho da logo */
+    margin-left: 70px; /* Move o texto para a direita */
+    margin-top: -100px; /* Move a logo para cima */
+
+
+        }
+
+        @font-face {
+          font-family: titulo;
+          src: url(fonts/Impana-Regular.otf) format('opentype');
+        }
+
+        .text-content h1 {
+            text-align: center;
+            font-family: titulo;
+             font-size: 50px;
+            margin-bottom: 20px;
+            margin-top: -50px;
+            margin-left: 70px;
+            color: #f97316;
+        }
+
+        .text-content p {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-top: -15px;
+            margin-left: 70px; /* Move o texto para a direita */
+            padding-right: 50px;
+        }
+
+        .image-content img {
+            max-width: 700px;
+            border-radius: 20px;
+           
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #353333;
+            color: #f97316;
+            position: relative;
+    bottom: 0;
+    width: 100%;
+        }
+
+        #sobre-nos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 100px;
+        gap: 20px;
+        background-color: #000;
+        color: #fff;
+    }
+
+    #sobre-nos .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #sobre-nos .text-content {
+        flex: 1;
+        text-align: left;
+    }
+
+    /* Estilo Geral */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000; /* Fundo preto */
+  color: #333333; /* Texto branco */
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #FFA500; /* Cor laranja */
+  margin-top: 20px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  
+}
+
+.item {
+  background-color: #000000;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      height: 300px;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #000000;
+}
+
+.item p {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff; /* Texto branco para melhor contraste */
+}
+
+/* Peixes Congelados e Frescos */
+/* Centralizar o grid de Peixes Congelados e Frescos */
+.peixes-congelados .grid, .peixes-frescos .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 itens por linha */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 20px; /* Espaçamento interno */
+    margin: 0 auto; /* Centraliza o grid na página */
+    max-width: 1200px; /* Limita a largura máxima do grid */
+}
+
+.peixes-congelados .item, .peixes-frescos .item {
+    text-align: center;
+    background-color: #000; /* Fundo preto */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.peixes-congelados .item img, .peixes-frescos .item img {
+    width: 100%;
+    max-width: 200px; /* Limita a largura das imagens */
+    height: auto;
+    border-radius: 8px;
+}
+
+.peixes-congelados h2, .peixes-frescos h2 {
+  text-align: center;
+      font-size: 24px;
+      color: #FFA500;
+      margin-bottom: 20px; /* Cor laranja para os títulos das seções */
+}
+
+/* Título da seção Receitas do Chef e animação do Chef */
+.titulo-receitas {
+  display: flex;
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;      /* Centraliza verticalmente */
+  font-size: 2rem;
+  color: #FFA500; /* Laranja */
+  margin: 0;
+  text-align: center; /* Garante que o texto também fique centralizado */
+  height: 200px; /* Ajuste conforme necessário para a altura */
+}
+
+.chef-icon {
+  width: 40px; /* Tamanho do chef */
+  height: auto;
+  margin-right: 10px; /* Espaço entre a imagem e o texto */
+  animation: chefAnimation 2s infinite ease-in-out;
+}
+
+/* Animação do Chef */
+@keyframes chefAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* O chef sobe um pouco */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+section {
+  padding: 20px;
+}
+
+
+
+.item img {
+  width: 100%;  /* Preenche todo o espaço do card */
+  max-width: 1000px;  /* Limita a largura máxima das imagens */
+  height: auto;
+  object-fit: cover; /* Mantém a proporção sem distorção */
+  
+}
+
+
+
+
+
+
+.item-m {
+      padding: 15px;
+      text-align: center;
+    }
+
+.item:hover {
+      transform: scale(1.05);
+    }
+
+.item p {
+  font-size: 18px;
+      color: #333;
+      margin-top: 10px;
+  color: #000000;
+  
+}
+
+.item-m p {
+  text-align: center;
+  color: #000000;
+  font-size: 1.1rem;
+  padding-left: 80px;
+}
+
+
+
+
+/* Pop-up Receita */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-conteudo {
+  background-color: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.popup h3 {
+  color: #FFA500; /* Laranja */
+  margin-bottom: 10px;
+}
+
+.popup p {
+  margin-bottom: 10px;
+}
+
+.popup ul, .popup ol {
+  padding-left: 20px;
+}
+
+.popup ul li, .popup ol li {
+  margin-bottom: 10px;
+}
+
+.fechar {
+  position: absolute;
+  top: -20px;
+  right: 670px;
+  font-size: 1.5rem;
+  color: #FFA500;
+  cursor: pointer;
+}
+
+.fechar:hover {
+  color: #e74c3c;
+}
+
+#link-video {
+  color: #3498db;
+  text-decoration: none;
+}
+
+#link-video:hover {
+  text-decoration: underline;
+}
+/* Rodapé geral */
+.site-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 2px solid orange;
+    border-bottom: 2px solid orange;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.logo-image {
+    width: 150px;
+}
+
+.footer-logo p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.footer-logo span {
+    color: orange;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.footer-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    min-width: 150px;
+}
+
+.footer-section h4 {
+    color: orange;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    padding-left: 100px;
+}
+
+/* Link do WhatsApp */
+.whatsapp-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.whatsapp-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilo do título */
+.titulo {
+    color: orange;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Estilo dos Cards */
+.card {
+    background-color: #000000;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+    margin: 20px;
+}
+
+/* Linha horizontal conectando os cards */
+.linha-do-tempo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 40px auto;
+    width: 80%;
+}
+
+.linha-do-tempo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    z-index: -1;
+}
+
+.card h2 {
+    color: orange;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #333;
+}
+
+.whatsapp-btn {
+            
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;  /* Cor de fundo verde */
+            color: white;
+            padding: 10px;  /* Ajuste o padding para controlar o tamanho do botão */
+            border-radius: 50%;  /* Tornando o botão circular */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 36px; /* Tamanho do ícone */
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s;
+            width: 60px;  /* Largura do botão */
+            height: 60px;  /* Altura do botão */
+            display: flex;
+            justify-content: center;  /* Alinha o ícone horizontalmente no centro */
+            align-items: center;  /* Alinha o ícone verticalmente no centro */
+                }
+        
+                .whatsapp-btn:hover {
+                    background-color: #128c7e;
+                }
+
+
+
+                .emporio-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.grid-m {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  width: 50%;
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 13px;
+  padding-right: 100px;
+}
+
+
+/* Container do botão */
+/* Botão "Faça seu Pedido!" */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+/* Estilo do botão "Faça seu Pedido!" */
+.order-button {
+    display: inline-block;
+    background-color: #FFA500;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.order-button:hover {
+    background-color: #e06b00;
+    transform: scale(1.05); /* Aumenta ligeiramente o botão */
+}
+
+header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        header nav ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 14px;
+            padding-bottom: 5px; /* Deixa espaço para a linha roxa */
+        }
+
+        header nav ul li a:hover {
+            color: #f8963b;
+        }
+
+        /* Linha roxa ao passar o mouse ou ao clicar */
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff9837;
+            transition: width 0.3s;
+        }
+
+        header nav ul li a:hover::after {
+            width: 100%; /* Quando passar o mouse, a linha vai até o final */
+        }
+
+        /* Para a aba selecionada, a linha fica visível */
+        header nav ul li a.active::after {
+            width: 100%;
+        }
+
+
+        /* Ajuste para desktop */
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px 20px;
+}
+
+.nav-menu ul {
+    display: none; /* Esconde o menu por padrão */
+    flex-direction: column; /* Organiza os itens em coluna */
+    background-color: #000; /* Fundo preto */
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #ff7f00;
+}
+
+.nav-menu.active ul {
+    display: flex; /* Exibe o menu quando ativo */
+}
+
+/* Remove o botão hambúrguer */
+.toggle-menu {
+  display: none;
+}
+#sobre-nos .text-content  p{
+      font-size: 22px; 
+      line-height: 1.8; 
+      margin-top: 10px;
+      }
+
+      #sobre-nos h2{
+        color: #f97316;
+        margin-bottom: 20px;
+        margin-left: 65px;
+        font-size: 30px;
+      }
+
+        /* Modal de Compra */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            color: #000;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-modal {
+            font-size: 24px;
+            cursor: pointer;
+            float: right;
+            color: #f97316;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .modal-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #f97316;
+        }
+
+        .modal-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #buy-button {
+            background-color: #25d366;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        #buy-button:hover {
+            background-color: #128c7e;
+        }
+
+       /* Container dos itens */
+/* Container dos itens */
+.item-container {
+    display: flex;                     /* Usando flexbox para controlar o layout */
+    flex-wrap: wrap;                   /* Faz com que os itens se movam para a linha seguinte */
+    justify-content: center;           /* Centraliza os itens horizontalmente */
+    gap: 20px;                         /* Espaçamento entre os itens */
+    padding: 20px;                     /* Padding ao redor do container */
+    max-width: 1200px;                 /* Limita a largura do container */
+    margin: 0 auto;                    /* Centraliza o container na página */
+}
+
+/* Cada item */
+.item {
+    display: flex;
+    flex-direction: column;             /* Organiza imagem, título e preço verticalmente */
+    align-items: center;                /* Centraliza os itens dentro do item */
+    text-align: center;                 /* Alinha o texto (título e preço) ao centro */
+    width: 23%;                          /* 4 itens por linha, 100% / 4 = 25%, com espaçamento */
+    min-width: 230px;                   /* Tamanho mínimo do item */
+    height: auto;                       /* Altura automática */
+    box-sizing: border-box;             /* Inclui o padding e border no tamanho total */
+    padding: 10px;                      /* Espaçamento interno do item */
+    border-radius: 8px;                 /* Bordas arredondadas */
+    background-color: #000000;          /* Cor de fundo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras sutis */
+    transition: transform 0.3s ease-in-out; /* Efeito de hover */
+}
+
+/* Efeito de hover no item */
+
+
+/* Imagem do item */
+.item img {
+    width: 100%;                        /* A imagem ocupa toda a largura do item */
+    height: 200px;                      /* Altura fixa da imagem */
+    object-fit: cover;                  /* Ajusta a imagem sem distorcer */
+    border-radius: 4px;                 /* Bordas arredondadas na imagem */
+}
+
+/* Título do item */
+.item h3 {
+    margin-top: 10px;                   /* Espaçamento acima do título */
+    font-size: 18px;                    /* Tamanho da fonte */
+    color: #333;                        /* Cor do título */
+    font-weight: bold;                  /* Negrito no título */
+}
+
+/* Preço do item */
+.item p {
+    margin-top: 5px;                    /* Espaçamento acima do preço */
+    font-size: 20px;                    /* Tamanho da fonte */
+    color: #ee8e10;                     /* Cor do preço */
+    font-weight: bold;                  /* Negrito no preço */
+}
+.item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do container do carrossel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Largura máxima do carrossel */
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Estilo do carrossel */
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Ajustar o enquadramento dos itens */
+.carousel .item {
+    flex: 0 0 auto; /* Garante que cada item ocupe apenas o espaço necessário */
+    width: 40%; /* Reduz a largura para 40% do contêiner */
+    max-width: 250px; /* Define a largura máxima como 250px */
+    height: 400px; /* Mantém a altura do item */
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px; /* Espaço interno */
+    background-color: #000000; /* Fundo preto */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+    transition: transform 0.3s ease-in-out; /* Efeito ao passar o mouse */
+}
+
+/* Ajustar o tamanho das imagens */
+.carousel .item img {
+    width: 100%; /* A imagem ocupa toda a largura do item */
+    max-width: 450px; /* Define o tamanho máximo da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: auto; /* Centraliza a imagem */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Ajustar o texto abaixo da imagem */
+.carousel .item p {
+    font-size: 24px; /* Aumenta o tamanho do texto */
+    font-weight: bold; /* Negrito no texto */
+    color: #fff; /* Cor branca para o texto */
+    margin-top: 10px; /* Espaçamento acima do texto */
+    text-align: center; /* Centraliza o texto */
+    padding-left: 100px;
+}
+
+/* Botões de navegação */
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(5, 5, 5, 0.5); /* Fundo semitransparente */
+  color: white; /* Cor da seta */
+  border: none;
+  padding: 15px; /* Aumente o padding para aumentar o tamanho do botão */
+  font-size: 24px; /* Aumente o tamanho da seta */
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 50%; /* Torna o botão circular */
+}
+
+.prev-btn {
+  left: 10px; /* Posição à esquerda */
+}
+
+.next-btn {
+  right: 10px; /* Posição à direita */
+}
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: #ff7f00;
+}
+
+.item {
+    min-width: 100%; /* Mostra apenas um item por vez */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Seção Inicial */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda a altura da tela */
+    background-image: url('imagens/ai-generated-9061477_1920.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    display: flex; /* Ativa o flexbox */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+}
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .hero-section .text-content {
+    position: relative; /* Permite posicionar o texto dentro da imagem */
+    z-index: 2; /* Garante que o texto fique acima do degradê */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    color: #fff; /* Texto branco */
+    padding: 20px;
+    border-radius: 10px; /* Bordas arredondadas */
+    max-width: 800px; /* Limita a largura do texto */
+}
+
+        .hero-section .text-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #f97316;
+        }
+
+        .hero-section .text-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hero-section .button-container .order-button {
+            display: inline-block;
+            background-color: #ff7f00;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .hero-section .button-container .order-button:hover {
+            background-color: #e06b00;
+            transform: scale(1.05);
+        }
+
+        /* Ícone do Carrinho */
+        .cart-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+#cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #ff7f00;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+/* Modal do Carrinho */
+#cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#cart-modal .modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#cart-items li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#finalize-button {
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#finalize-button:hover {
+  background-color: #128c7e;
+}
+
+#add-to-cart-button {
+  background-color: #ff7f00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#add-to-cart-button:hover {
+  background-color: #e06b00;
+}
+
+
+
+
+/* Ajuste para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+  /* Ajuste para Peixes Congelados e Frescos */
+  .peixes-congelados .grid, .peixes-frescos .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 itens por linha */
+    gap: 15px; /* Espaçamento entre os itens */
+    padding: 10px; /* Reduz o padding */
+  }
+
+  .peixes-congelados .item, .peixes-frescos .item {
+    width: 100%; /* Cada item ocupa 100% da largura disponível */
+    height: auto; /* Altura automática */
+    text-align: center; /* Centraliza o conteúdo */
+  }
+
+  .peixes-congelados .item img, .peixes-frescos .item img {
+    max-width: 100%; /* Imagens ocupam toda a largura do item */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Bordas arredondadas */
+  }
+
+  .peixes-congelados h2, .peixes-frescos h2 {
+    font-size: 20px; /* Reduz o tamanho do título */
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+  }
+
+
+  
+    .cart-icon {
+    font-size: 20px; /* Ajusta o tamanho do ícone do carrinho */
+  }
+
+  .logo img {
+    height: 80px; /* Reduz o tamanho da logo em telas menores */
+  }
+
+
+
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+
+    .text-content p {
+        font-size: 16px; /* Reduz o tamanho do texto */
+    }
+
+    .text-content h1 {
+        font-size: 24px;
+        padding-right: 50px; /* Reduz o tamanho do título */
+    }
+
+    .text-content .logo-img{
+      align-content: center;
+      margin:0px;
+      padding-right: 90px;
+      padding-left: 80px;
+
+    }
+
+    
+
+    .button-container{
+      padding-right: 20px;
+      padding-left: 80px;
+    }
+
+    .image-content img{
+      max-width: 0px;
+            border-radius: 0px;
+      
+    }
+    
+    
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+      .item {
+        width: 100%;
+        height: 300px;
+      }
+      .item img {
+        height: 150px; /* Ajusta a altura das imagens */
+    }
+
+    .item-m p {
+    font-size: 16px; /* Tamanho da fonte */
+    color: #fff; /* Cor branca */
+    text-align: center; /* Centraliza o texto */
+    padding: 0; /* Remove padding extra */
+    margin: 10px 0; /* Espaçamento ao redor do texto */
+  }
+.item p {
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito no texto */
+    color: #fff; /* Cor branca para o texto */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 10px; /* Espaçamento acima do texto */
+    overflow: visible; /* Garante que o texto seja exibido */
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+  }
+
+
+
+
+    .emporio-section h2{
+      padding-left: 20px;
+
+
+
+    }
+
+    .emporio-section h3{
+      padding-left: 20px;
+    }
+    .grid-m {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+       gap: 20px;
+      justify-items: center;
+      padding-left: 20px;
+      
+    }
+
+    .peixes-congelados h2{
+      padding-left: 20px;
+    }
+
+    .peixes-frescos h2{
+      padding-left: 20px;
+    }
+
+    
+
+    .titulo-receitas {
+  display: flex;
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;      /* Centraliza verticalmente */
+  padding-right: 20px;
+  font-size: 2rem;
+  color: #FFA500; /* Laranja */
+  margin: 0;
+  text-align: center; /* Garante que o texto também fique centralizado */
+  height: 200px; /* Ajuste conforme necessário para a altura */
+}
+
+.chef-icon {
+  width: 20px; /* Tamanho do chef */
+  height: 20px;
+  margin-right: 5px; /* Espaço entre a imagem e o texto */
+  animation: chefAnimation 2s infinite ease-in-out;
+}
+
+
+.whatsapp-btn {
+            
+            position: fixed;
+            right: 150px;
+            bottom: 20px;
+            
+            background-color: #25d366;  /* Cor de fundo verde */
+            color: white;
+            padding: 10px;  /* Ajuste o padding para controlar o tamanho do botão */
+            border-radius: 50%;  /* Tornando o botão circular */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 36px; /* Tamanho do ícone */
+            cursor: pointer;
+            z-index: 9999;
+            transition: background-color 0.3s;
+            width: 60px;  /* Largura do botão */
+            height: 60px;  /* Altura do botão */
+            display: flex;
+           
+           
+          
+                }
+                .whatsapp-btn:hover {
+                    background-color: #128c7e;
+                    
+                    
+                }
+
+                .button-container{
+                   padding-right: 100px;
+                }
+
+
+
+
+                header {
+    flex-direction: row; /* Garante que os itens fiquem em linha */
+    justify-content: space-between; /* Mantém a logo à esquerda e o carrinho à direita */
+    padding: 10px 15px;
+  }
+
+
+
+        #sobre-nos {
+        align-content: left;
+        text-align: left;
+      margin:0px;
+      padding-right: 100px;
+      padding-left: 80px;
+      font-size: 14px;
+      justify-content: center;
+    }
+
+    #sobre-nos .image-content {
+        flex: 1;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
+
+      .footer-bottom{
+        padding-right: 100px;
+      }
+
+      .footer-bottom p{
+        padding-right: 100px;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      /* Link do WhatsApp */
+.whatsapp-link {
+    position: relative;
+    bottom: 20px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    padding-left: 100px;
+}
+
+.whatsapp-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding-left: 100px
+}
+
+#sobre-nos h2{
+        color: #f97316;
+        margin-bottom: 20px;
+        margin-left: 65px;
+        font-size: 30px;
+        padding-right: 80px;
+        padding-left: 30px;
+      }
+
+      #sobre-nos .text-content  p{
+      width: 100%;
+      font-size: 16px;
+      padding-left: 30px;
+      
+      }
+
+      
+      .modal-content {
+                padding: 20px;
+            }
+        
+
+           
+    .item-container {
+        padding: 10px;             /* Menos padding em telas pequenas */
+    }
+
+    .item {
+        width: 48%;                /* 2 itens por linha */
+    }
+
+    nav{
+      display: none;
+    }
+
+
+}
+
+      
+      
+
+
+
+
+
+
+    </style>
+</head>
+    <!-- Outros scripts que você já usa -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Inicializa o AOS
+        AOS.init({
+            duration: 1200, // Tempo da animação (em ms)
+            once: true      // Anima apenas uma vez ao entrar na tela
+        });
+    </script>
+</body>
+
+<body>
+    <!-- Cabeçalho Interativo -->
+    <header>
+        <div class="logo">
+            <img src="imagens/logo (2).png" alt="Logo Sea Mooca">
+        </div>
+      
+        <nav>
+            <ul id="menu">
+                <li class="active"><a href="#home"><b>HOME</a></li></b>
+                <li><a href="#peixescongelados"><b>PEIXES</a></li></b>
+                <li><a href="#peixesfrescos"><b>PEIXES FRESCOS</a></li></b>
+                <li><a href="#emporio"><b>EMPÓRIO</a></li></b>
+                <li><a href="#receitas"><b>RECEITAS</a></li></b>
+                <li><a href="#contato"><b>CONTATO</a></li></b>
+            </ul>
+        </nav>
+
+
+        <div class="cart-icon" onclick="openCart()">
+          🛒 <span id="cart-count">0</span>
+        </div>
+      </header>
+      
+      <!-- Modal do Carrinho -->
+      <div id="cart-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Seu Carrinho</h2>
+          <ul id="cart-items"></ul>
+          <button id="finalize-button" onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+      </div>
+
+
+        <meta name="description" content="Sea Mooca Gourmet - Peixes frescos e congelados, empório e receitas exclusivas. Descubra o sabor dos mares!">
+        <meta name="keywords" content="peixes frescos, frutos do mar, empório, receitas, Sea Mooca Gourmet">
+        <meta name="author" content="Gabriel Dantas">
+        
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+      <section id="inicio" class="hero-section">
+        <div class="hero-overlay"></div>
+          <div class="text-content">
+            <h1>Bem-vindo à Sea Mooca Gourmet!</h1>
+            <p>Somos especializados em peixes frescos e congelados, cuidadosamente escolhidos para garantir sabor e excelência. Nosso maior compromisso é oferecer a você a mais alta qualidade em frutos do mar.</p>
+            <br>
+            <p>Venha nos visitar e descubra o verdadeiro sabor dos mares!</p>
+            <br><br>
+            <div class="button-container">
+              <a href="https://api.whatsapp.com/send?phone=5511919760799&text=Olá!%20Gostaria%20de%20fazer%20um%20pedido."
+                 target="_blank" class="order-button">
+                Faça seu Pedido!
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+        <br><br>
+    </main>
+
+<br><br><br><br>
+
+<!-- Modal de Compra -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img id="modal-image" src="" alt="Imagem do Produto">
+    <h2 id="modal-title"></h2>
+    <p id="modal-price"></p>
+    <label for="quantity">Quantidade:</label>
+    <input type="number" id="quantity" min="1" value="1">
+    <button id="add-to-cart-button">Adicionar ao Carrinho</button>
+  </div>
+</div>
+</main>
+
+<div class="carousel-indicators">
+  <span class="indicator active"></span>
+  <span class="indicator"></span>
+  <span class="indicator"></span>
+</div>
+
+
+
+
+
+
+<!-- Seção 3: Peixes Congelados -->
+<section id="peixescongelados" class="peixes-congelados" data-aos="fade-up">
+  <h2>Nossos Peixes Congelados!</h2>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item" data-price="50.00" data-image="imagens/Camarão pistola.jpg">
+        <img src="imagens/Camarão pistola.jpg" alt="Camarão Pistola">
+        <p>Camarão Pistola</p>
+        
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/KIT PAELLA.jpg">
+        <img src="imagens/KIT PAELLA.jpg" alt="Kit Paella">
+        <p>Kit Paella</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Aneis de lula.jpg">
+        <img src="imagens/Aneis de lula.jpg" alt="Anéis de Lula Peruana">
+        <p>Anéis de Lula Peruana</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Camarao fresco GG.jpg">
+        <img src="imagens/Camarao fresco GG.jpg" alt="Camarão Branco">
+        <p>Camarão M, G, GG</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Miolo de lagosta.jpg">
+        <img src="imagens/Miolo de lagosta.jpg" alt="Miolo de Lagosta">
+        <p>Miolo de Lagosta</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Camarao fresco.jpg">
+        <img src="imagens/Camarao fresco.jpg" alt="Camarão Vermelho">
+        <p>Camarão Vermelho</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/MArisco foto.jpg">
+        <img src="imagens/MArisco foto.jpg" alt="Marisco na Concha">
+        <p>Marisco na Concha</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+</section>
+
+<!-- Seção 4: Peixes Frescos -->
+<section id="peixesfrescos" class="peixes-frescos" data-aos="fade-up">
+  <h2>Nossos Peixes Frescos!</h2>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item" data-price="50.00" data-image="imagens/Abrotea.jpg">
+        <img src="imagens/Abrotea.jpg" alt="Abrotea">
+        <p>Abrotea</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Pescada.jpg">
+        <img src="imagens/Pescada.jpg" alt="Pescada">
+        <p>Pescada</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Salmao tabua.jpg">
+        <img src="imagens/Salmao tabua.jpg" alt="Salmão">
+        <p>Salmão</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/TIlapia.jpg">
+        <img src="imagens/TIlapia.jpg" alt="Tilápia">
+        <p>Tilápia</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Linguado.jpg">
+        <img src="imagens/Linguado.jpg" alt="Linguado">
+        <p>Linguado</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/Anchova.jpg">
+        <img src="imagens/Anchova.jpg" alt="Anchova">
+        <p>Anchova</p>
+      </div>
+      <div class="item" data-price="50.00" data-image="imagens/ROBALO.jpg">
+        <img src="imagens/ROBALO.jpg" alt="Robalo">
+        <p>Robalo</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+</section>
+
+<!-- Seção 5: Empório -->
+<section id="emporio" class="emporio-section" data-aos="fade-up">
+  <h2>Nosso Empório</h2>
+  <br><br>
+
+  <!-- Carrossel de Vinhos -->
+  <h3>Vinhos</h3>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item">
+        <img src="imagens/dv_catebna-removebg-preview.png" alt="Dv Catena" style="height: 200px; width: 200px;">
+        <p>Dv Catena</p>
+      </div>
+      <div class="item">
+        <img src="imagens/portillo-removebg-preview.png" alt="Portillo" style="height: 200px; width: 200px;">
+        <p>Portillo</p>
+      </div>
+      <div class="item">
+        <img src="imagens/felino-removebg-preview.png" alt="Felino" style="height: 200px; width: 200px;">
+        <p>Felino</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+  <br><br>
+
+  <!-- Carrossel de Cachaças -->
+  <h3>Cachaças</h3>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item">
+        <img src="imagens/cachaca-gabriela1-5855352362ac7eb08d16629917540999-640-0-removebg-preview.png" alt="Gabriela 33" style="height: 200px; width: 200px;">
+        <p>Gabriela 33</p>
+      </div>
+      <div class="item">
+        <img src="imagens/bananela.png" alt="Bananela" style="height: 200px; width: 200px;">
+        <p>Bananela</p>
+      </div>
+      <div class="item">
+        <img src="imagens/cachaca-cabare-ouro-700ml-00275_1-removebg-preview.png" alt="Cabaré Ouro" style="height: 200px; width: 200px;">
+        <p>Cabaré Ouro</p>
+      </div>
+      <div class="item">
+        <img src="imagens/cachaca-cabare-prata-700ml-00276_1-removebg-preview.png" alt="Cabaré Prata" style="height: 200px; width: 200px;">
+        <p>Cabaré Prata</p>
+      </div>
+      <div class="item">
+        <img src="imagens/cabare_amburana-removebg-preview.png" alt="Cabaré Amburana" style="height: 200px; width: 200px;">
+        <p>Cabaré Amburana</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+  <br><br>
+
+  <!-- Carrossel de Alimentos -->
+  <h3>Alimentos</h3>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item">
+        <img src="imagens/riso arborio.png" alt="Riso Arborio" style="height: 200px; width: 200px;">
+        <p>Riso Arborio</p>
+      </div>
+      <div class="item">
+        <img src="imagens/paella.png" alt="Arroz para Paella" style="height: 200px; width: 150px;">
+        <p>Arroz para Paella</p>
+      </div>
+      <div class="item">
+        <img src="imagens/pomodor.png" alt="Pomodori Pelati" style="height: 200px; width: 200px;">
+        <p>Pomodori Pelati</p>
+      </div>
+      <div class="item">
+        <img src="imagens/fetuccine-removebg-preview.png" alt="Fettuccine 12" style="height: 200px; width: 200px;">
+        <p>Fettuccine 12</p>
+      </div>
+      <div class="item">
+        <img src="imagens/penne-removebg-preview.png" alt="Penne Ziti Rigate 27" style="height: 190px; width: 200px;">
+        <p>Penne Ziti Rigate 27</p>
+      </div>
+      <div class="item">
+        <img src="imagens/peixe_polaca-removebg-preview.png" alt="Peixe Polaca" style="height: 200px; width: 200px;">
+        <p>Peixe Polaca</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+  <br><br>
+
+  <!-- Carrossel de Temperos -->
+  <h3>Temperos</h3>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item">
+        <img src="imagens/Paprica-Doce--60g---Bombay_0-removebg-preview.png" alt="Páprica Doce" style="height: 200px; width: 150px;">
+        <p>Páprica Doce</p>
+      </div>
+      <div class="item">
+        <img src="imagens/chimichurri-removebg-preview.png" alt="Chimichurri" style="height: 200px; width: 150px;">
+        <p>Chimichurri</p>
+      </div>
+      <div class="item">
+        <img src="imagens/defumada_1-removebg-preview.png" alt="Páprica Defumada" style="height: 200px; width: 140px;">
+        <p>Páprica Defumada</p>
+      </div>
+      <div class="item">
+        <img src="imagens/ervas-finas-removebg-preview.png" alt="Ervas Finas" style="height: 200px; width: 150px;">
+        <p>Ervas Finas</p>
+      </div>
+      <div class="item">
+        <img src="imagens/tempero_peixe_40g_bombay-removebg-preview.png" alt="Tempero para Peixes" style="height: 190px; width: 140px;">
+        <p>Tempero para Peixes</p>
+      </div>
+      <div class="item">
+        <img src="imagens/Lemon-Pepper-Bombay-90-G-removebg-preview.png" alt="Lemon Pepper" style="height: 200px; width: 150px;">
+        <p>Lemon Pepper</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+  <br><br>
+
+  <!-- Carrossel de Pimentas -->
+  <h3>Pimentas</h3>
+  <div class="carousel-container">
+    <button class="prev-btn">←</button>
+    <div class="carousel">
+      <div class="item">
+        <img src="imagens/bhut-removebg-preview.png" alt="Bhut Jolokia" style="height: 200px; width: 130px;">
+        <p>Bhut Jolokia</p>
+      </div>
+      <div class="item">
+        <img src="imagens/jala-removebg-preview.png" alt="Jalapeño" style="height: 200px; width: 130px;">
+        <p>Jalapeño</p>
+      </div>
+      <div class="item">
+        <img src="imagens/molho de pimenta.png" alt="Pimenta Mormaço" style="height: 200px; width: 130px;">
+        <p>Pimenta Mormaço</p>
+      </div>
+      <div class="item">
+        <img src="imagens/scotch-removebg-preview.png" alt="Scotch Bonnet" style="height: 200px; width: 130px;">
+        <p>Scotch Bonnet</p>
+      </div>
+      <div class="item">
+        <img src="imagens/alho_negro-removebg-preview.png" alt="Alho Negro" style="height: 200px; width: 130px;">
+        <p>Alho Negro</p>
+      </div>
+      <div class="item">
+        <img src="imagens/bufallo_wing-removebg-preview.png" alt="Molho Buffalo Wing" style="height: 190px; width: 130px;">
+        <p>Molho Buffalo Wing</p>
+      </div>
+      <div class="item">
+        <img src="imagens/molho_de_pimentas_especias_-removebg-preview.png" alt="Molho de Pimentas Especiais" style="height: 190px; width: 130px;">
+        <p>Molho de Pimentas Especiais</p>
+      </div>
+      <div class="item">
+        <img src="imagens/biquinho-removebg-preview.png" alt="Pimenta Biquinho" style="height: 200px; width: 130px;">
+        <p>Pimenta Biquinho</p>
+      </div>
+      <div class="item">
+        <img src="imagens/geleia-removebg-preview.png" alt="Geleia de Pimenta" style="height: 200px; width: 130px;">
+        <p>Geleia de Pimenta</p>
+      </div>
+      <div class="item">
+        <img src="imagens/habanero-removebg-preview.png" alt="Molho de Pimenta Habanero" style="height: 190px; width: 130px;">
+        <p>Molho de Pimenta Habanero</p>
+      </div>
+      <div class="item">
+        <img src="imagens/bbq-removebg-preview.png" alt="Molho Barbecue" style="height: 200px; width: 130px;">
+        <p>Molho Barbecue</p>
+      </div>
+    </div>
+    <button class="next-btn">→</button>
+  </div>
+</section>
+
+
+<!-- Seção 5: Receitas do Chef -->
+<section id="receitas" class="receitas" data-aos="fade-up">
+  <h2>
+    <span class="titulo-receitas">
+      <img src="imagens/chef.png" alt="Chef" class="chef-icon" style="height: 200px; width: 200px;"> 
+      Receitas do Chef
+    </span>
+  </h2>
+  <div class="grid">
+    <div class="item" onclick="mostrarReceita('risoto-camarao')">
+      <img src="imagens/risoto de camarao.png" alt="Risoto de Camarão">
+      <p>Risoto de Camarão</p>
+    </div>
+    <div class="item" onclick="mostrarReceita('prato1')">
+      <img src="imagens/paella prato.png" alt="Prato 1">
+      <p>Paella Marinera</p>
+    </div>
+    <div class="item" onclick="mostrarReceita('prato2')">
+      <img src="imagens/ceviche.png" alt="Prato 2">
+      <p>Ceviche</p>
+    </div>
+    <div class="item" onclick="mostrarReceita('prato3')">
+      <img src="imagens/moqueca.png" alt="Prato 3">
+      <p>Moqueca</p>
+    </div>
+  </div>
+
+  <!-- Pop-up Receita -->
+  <div id="popup-receita" class="popup">
+    <div class="popup-conteudo">
+      <span class="fechar" onclick="fecharReceita()">&times;</span>
+      <h3 id="titulo-receita">Receita do Chef</h3>
+      <div id="descricao-prato"></div>
+      <p id="ingredientes">Ingredientes:</p>
+      <ul id="lista-ingredientes"></ul>
+      <p id="modo-preparo">Modo de preparo:</p>
+      <ol id="lista-preparo"></ol>
+      <p id="video-link"><strong>Assista o vídeo:</strong></p>
+      <a id="link-video" href="javascript:void(0)" target="_blank">Clique aqui para ver o vídeo</a>
+
+
+    </div>
+  </div>
+</section>
+
+
+<br><br><br><br><br><br><br><br>
+
+<!-- Seção 3: Nossa História -->
+<section id="history" class="tab-content">
+  <h2 class="history-title" data-aos="fade-up" data-aos-duration="1000">Nossa História</h2>
+  <div class="history-timeline">
+      <!-- Card 2022 -->
+      <div class="history-card" data-aos="fade-right" data-aos-duration="1000">
+          <h3 class="card-title">2022</h3>
+          <div class="card-content">
+              <img src="imagens/loja 2022.jpg" alt="Foto de 2022" class="card-image" data-aos="zoom-in" data-aos-duration="1000">
+              <p class="card-description" data-aos="fade-up" data-aos-duration="1000"><b>Em 2022, demos início à nossa jornada com a inauguração da primeira unidade da Sea Mooca - Boutique de Frutos do Mar. Um espaço dedicado à venda de peixes frescos e congelados, pensado para atender aos amantes de frutos do mar com qualidade e frescor.</b></p>
+          </div>
+      </div>
+
+      <!-- Linha de conexão -->
+      <div class="timeline-connector" data-aos="fade-in" data-aos-duration="1000"></div>
+
+      <!-- Card 2024 -->
+      <div class="history-card" data-aos="fade-up" data-aos-duration="1000">
+          <h3 class="card-title">2024</h3>
+          <div class="card-content">
+              <img src="imagens/2024.jpg" alt="Foto de 2024" class="card-image" data-aos="zoom-in" data-aos-duration="1000">
+              <p class="card-description" data-aos="fade-up" data-aos-duration="1000"><b>Em 2024, alcançamos um novo marco: a mudança para um espaço mais amplo e moderno, proporcionando mais conforto e variedade para os nossos clientes. Um passo importante para continuar oferecendo o melhor da Sea Mooca Gourmet.</b></p>
+          </div>
+      </div>
+
+      <!-- Linha de conexão -->
+      <div class="timeline-connector" data-aos="fade-in" data-aos-duration="1000"></div>
+
+      <!-- Card 2025 -->
+      <div class="history-card" data-aos="fade-left" data-aos-duration="1000">
+          <h3 class="card-title">2025</h3>
+          <div class="card-content">
+              <img src="imagens/2025.jpg" alt="Foto de 2025" class="card-image" data-aos="zoom-in" data-aos-duration="1000">
+              <p class="card-description" data-aos="fade-up" data-aos-duration="1000"><b>Em 2025, a Sea Mooca Gourmet  se transforma! Unimos o frescor dos nossos frutos do mar à experiência de uma cozinha sofisticada. Agora, além de uma boutique de peixes, somos também um restaurante, oferecendo pratos especiais aos finais de semana.</b></p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<br><br><br>
+
+<!-- Link da biblioteca AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
+<style>
+/* Título principal */
+.history-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: orange; /* Título em laranja */
+    margin-bottom: 30px;
+}
+
+/* Container da timeline */
+.history-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os elementos */
+    padding: 20px;
+    position: relative;
+}
+
+/* Card de cada ano */
+.history-card {
+    background-color: #8a0606; /* Fundo cinza */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Mantém os cards acima da linha */
+}
+
+/* Título do card */
+.card-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Imagem do card */
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Descrição do card */
+.card-description {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Linha laranja horizontal entre os cards */
+.timeline-connector {
+    width: 60px; /* Largura da linha */
+    height: 5px; /* Espessura da linha */
+    background-color: orange; /* Cor da linha */
+    z-index: 0; /* Mantém a linha abaixo dos cards */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .history-timeline {
+        flex-direction: column;
+       
+        
+        
+    }
+    .history-card {
+    background-color: #252525; /* Fundo cinza */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Mantém os cards acima da linha */
+}
+.card-image {
+    width: 70%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+    .timeline-connector {
+        width: 5px; /* Linha vertical para telas menores */
+        height: 50px;
+        
+    }
+
+    .history-title{
+      padding-left: 0px;
+    }
+}
+
+
+
+</style>
+ <!-- Seção 2: Sobre Nós -->
+ <section id="sobre-nos" class="container" data-aos="fade-up">
+  <div class="image-content">
+      <img src="imagens/interiorloja.jpg" alt="Interior da loja Sea Mooca" style="border-radius: 20px; max-width: 100%;">
+  </div>
+  <div class="text-content">
+      <h2 style="color: #f97316; margin-bottom: 20px; margin-left: 65px; font-size: 30px;">Sobre Nós</h2>
+      <p >
+          Descubra a combinação perfeita entre frescor e sabor. Na Sea Mooca Gourmet, oferecemos uma seleção exclusiva
+          de peixes frescos e congelados, cuidadosamente preparados para atender aos mais exigentes paladares.
+      </p>
+      <p >
+          Aos finais de semana, transformamos nossa paixão por frutos do mar em deliciosos pratos que destacam o melhor
+          que o mar tem a oferecer. Seja para levar para casa ou saborear em um momento especial, estamos aqui para
+          garantir a você uma experiência inesquecível.
+      </p>
+      <p>
+          Explore o verdadeiro sabor dos mares conosco!
+      </p>
+  </div>
+</section>
+
+<br><br>
+
+
+<script>
+  function mostrarReceita(prato) {
+  let titulo = '';
+  let descricao = '';
+  let ingredientes = '';
+  let preparo = '';
+  let videoUrl = '';
+
+  // Dados das receitas com link do vídeo
+  if (prato === 'risoto-camarao') {
+    titulo = 'Risoto de Camarão';
+    descricao = '<p>Este risoto cremoso é uma combinação perfeita de camarões frescos e arroz arbóreo, com um toque suave de alho e manteiga.</p>';
+    ingredientes = [
+      '3 xícaras de arroz arbóreo',
+      '2 colheres de azeite',
+      '1 colher de manteiga',
+      '2 dentes de alho picados',
+      '500g de camarão descascado'
+    ];
+    preparo = [
+      'Aqueça o azeite e a manteiga em uma panela.',
+      'Adicione o alho e refogue rapidamente.',
+      'Acrescente o arroz e mexa bem.',
+      'Adicione o camarão e continue mexendo.',
+      'Adicione caldo de galinha aos poucos, mexendo até o arroz ficar cremoso.'
+    ];
+    videoUrl = 'https://www.youtube.com/watch?v=jJk6uHwnGRE';  // Link do vídeo
+  } else if (prato === 'prato1') {
+    titulo = 'Paella Marinera';
+    descricao = '<p>Paella Marinera: prato espanhol clássico com arroz e frutos do mar (camarão, lula, mexilhão e peixe), destacando sabores mediterrâneos em uma receita sofisticada e simples.</p>';
+    ingredientes = [
+      '2 xícaras de arroz para paella',
+      '500g de camarões',
+      '300g de lulas, mexilhões e filé de peixe (cada)',
+      '1 cebola, 1 pimentão, 2 tomates, 3 dentes de alho',
+      'Azeite, açafrão, páprica, sal e pimenta a gosto',
+      '4 xícaras de caldo de peixe ou frutos do mar'
+    ];
+    preparo = [
+      'Refogue cebola, alho e pimentão no azeite.',
+      'Adicione os frutos do mar (exceto os mexilhões) e refogue rapidamente.',
+      'Misture arroz, tomate ralado e açafrão.',
+      'Adicione caldo quente e cozinhe por 15-20 minutos.',
+      'Coloque os mexilhões, ajuste o sal e finalize.'
+    ];
+    videoUrl = 'https://www.youtube.com/watch?v=3zHFk7du89k';  // Link do vídeo
+  } else if (prato === 'prato2') {
+    titulo = 'Ceviche';
+    descricao = '<p>O Ceviche é um prato típico peruano feito com peixe fresco marinado em suco de limão, temperado com cebola, coentro e pimenta. Refrescante e cítrico, é perfeito como entrada ou prato principal.</p>';
+    ingredientes = [
+      '400g de peixe branco (robalo, linguado ou tilápia)',
+      'Suco de 6 limões',
+      '1 cebola roxa em tiras',
+      '1 pimenta dedo-de-moça picada',
+      'Coentro picado',
+      'Sal a gosto'
+    ];
+    preparo = [
+      'Corte o peixe em cubos e tempere com sal, limão, cebola e pimenta.',
+      'Deixe marinar por 10 minutos.',
+      'Finalize com coentro e sirva.' 
+    ];
+    videoUrl = 'https://www.youtube.com/watch?v=1Di6Bxsa00A';  // Link do vídeo
+  } else if (prato === 'prato3') {
+    titulo = 'Moqueca';
+    descricao = '<p>A Moqueca é um prato brasileiro feito com peixe cozido em molho de leite de coco, tomate, pimentão e azeite de dendê. Saboroso e fácil de preparar, é perfeito para ocasiões especiais.</p>';
+    ingredientes = [
+      '800g de peixe (cação, robalo ou dourado)',
+      '1 pimentão, 2 tomates e 1 cebola em rodelas',
+      '200ml de leite de coco',
+      '2 colheres (sopa) de azeite de dendê',
+      'Suco de 1 limão',
+      'Alho, coentro, sal e pimenta a gosto'
+    ];
+    preparo = [
+      'Tempere o peixe com limão, alho, sal e pimenta.',
+      'Faça camadas de legumes e peixe na panela.',
+      'Adicione leite de coco e azeite de dendê.',
+      'Cozinhe por 20 minutos e finalize com coentro.'
+    ];
+    videoUrl = 'https://www.youtube.com/watch?v=qKCZK3v1eoA';  // Link do vídeo
+  }
+
+  // Preenche os dados da receita no pop-up
+  document.getElementById('titulo-receita').textContent = titulo;
+  document.getElementById('descricao-prato').innerHTML = descricao;
+  document.getElementById('ingredientes').textContent = 'Ingredientes:';
+  let ulIngredientes = document.getElementById('lista-ingredientes');
+  ulIngredientes.innerHTML = '';
+  ingredientes.forEach(function(item) {
+    let li = document.createElement('li');
+    li.textContent = item;
+    ulIngredientes.appendChild(li);
+  });
+
+  document.getElementById('modo-preparo').textContent = 'Modo de preparo:';
+  let olPreparo = document.getElementById('lista-preparo');
+  olPreparo.innerHTML = '';
+  preparo.forEach(function(step) {
+    let li = document.createElement('li');
+    li.textContent = step;
+    olPreparo.appendChild(li);
+  });
+
+ // Define o link do vídeo
+ const videoLink = document.getElementById('link-video');
+  videoLink.href = videoUrl;
+
+
+  // Exibe o pop-up
+  document.getElementById('popup-receita').style.display = 'flex';
+}
+
+function fecharReceita() {
+  document.getElementById('popup-receita').style.display = 'none';
+}
+
+</script>
+<script>
+function abrirVideo() {
+  const videoUrl = document.getElementById('link-video').getAttribute('data-video-url');
+  if (videoUrl) {
+    window.open(videoUrl, '_blank');
+  } else {
+    alert('O vídeo ainda não está disponível.');
+  }
+}
+</script>
+
+
+
+
+<br><br><br><br><br><br><br><br>
+
+<section id="contato" class="contato" >
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<footer class="site-footer" style="background-image: url('imagens/rodape.jpg'); background-size: cover; background-position: center; ">
+  <!-- Logo Centralizada -->
+  <div class="footer-logo" style="text-align: center; margin-top: 30px;">
+      <img src="imagens/logo (2).png" alt="Sea Mooca" class="logo-image" style="width: 250px;">
+     
+  </div>
+
+  <!-- Linha Branca Entre a Logo e as Informações -->
+  <div style="border-top: 1px solid white; margin-top: 20px;"></div>
+
+  <!-- Informações Alinhadas na Parte Inferior -->
+  <div class="footer-info" style="display: flex; justify-content: center; gap: 40px; margin-top: 30px; text-align: left; flex-wrap: wrap;">
+      <div class="footer-section">
+          <h4><b>Telefone</b></h4>
+          <p><b>(11) 55657-0987</b></p>
+      </div>
+      <div class="footer-section">
+          <h4><b>Endereço</b></h4>
+          <p><b>Rua Conde Prates, 62 - SP</b></p>
+      </div>
+      <div class="footer-section">
+          <h4><b>Redes Sociais</b></h4>
+          <p>
+            <a href="https://www.instagram.com/seamoocaoficial" target="_blank" style="display: flex; align-items: center; gap: 8px; color: white;">
+              <i class="fab fa-instagram" style="font-size: 24px;"></i><b>@seamoocaoficial</b></a><br>
+              <a href="https://www.facebook.com/seamoocaoficial" target="_blank" style="display: flex; align-items: center; gap: 8px; color: white;">
+                <i class="fab fa-facebook" style="font-size: 24px;"></i><b>@seamoocaoficial</b></a>
+          </p>
+      </div>
+      <div class="footer-section">
+          <h4><b>Horário de Atendimento</b></h4>
+          <p><b>Ter a Sáb - 08:00 - 19:00</b><br><b>Dom - 08:00 - 14:00</b></p>
+      </div>
+  </div>
+
+  <!-- Rodapé Inferior -->
+  <div class="footer-bottom" style="text-align: center; margin-top: 30px;">
+    <p>&copy; <b>2024 - Criado por Gabriel Dantas</b></p>
+    <p>
+        Entre em contato: 
+        <a href="mailto:gabriel_dantas2006@hotmail.com"><b>gabriel_dantas2006@hotmail.com</b></a> |
+    </p>
+  </div>
+</section>
+  <!-- Botão WhatsApp -->
+  <a href="https://wa.me/5511919760799" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+</footer>
+
+
+
+    <!-- JavaScript -->
+    <script>
+        // Menu Interativo - Adiciona a classe 'active' ao item do menu atual
+        const menuItems = document.querySelectorAll('#menu li a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelector('#menu li.active').classList.remove('active');
+                item.parentElement.classList.add('active');
+            });
+        });
+    </script>
+<script>
+const indicators = document.querySelectorAll('.indicator');
+indicators.forEach((indicator, i) => {
+    indicator.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+        updateIndicators();
+    });
+});
+
+function updateIndicators() {
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+    });
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+
+
+<script>
+  // Seleciona todos os links do menu
+  const menuLinks = document.querySelectorAll('header nav ul li a');
+
+  // Adiciona o evento de clique para ativar a linha roxa
+  menuLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+          // Remove a classe 'active' de todos os links
+          menuLinks.forEach(link => link.classList.remove('active'));
+
+          // Adiciona a classe 'active' ao link clicado
+          this.classList.add('active');
+      });
+  });
+
+  // Detecta a rolagem da página e ativa a aba correspondente
+  window.addEventListener('scroll', () => {
+      let scrollPosition = window.scrollY;
+
+      menuLinks.forEach(link => {
+          let section = document.querySelector(link.getAttribute('href')); // Pega o id da seção
+          let sectionTop = section.offsetTop;
+          let sectionHeight = section.offsetHeight;
+
+          // Verifica se a rolagem está na área da seção
+          if (scrollPosition >= sectionTop - 10 && scrollPosition < sectionTop + sectionHeight) {
+              // Adiciona a classe 'active' na aba correspondente
+              menuLinks.forEach(link => link.classList.remove('active'));
+              link.classList.add('active');
+          }
+      });
+  });
+  </script>
+  <script>
+    const toggleMenuButton = document.querySelector('.toggle-menu');
+const navMenu = document.querySelector('.nav-menu');
+
+toggleMenuButton.addEventListener('click', () => {
+    navMenu.classList.toggle('active'); // Adiciona ou remove a classe 'active'
+});
+
+
+
+</script>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+  <script>
+ document.addEventListener("DOMContentLoaded", function () {
+  const carousels = document.querySelectorAll(".carousel-container");
+
+  carousels.forEach(carouselContainer => {
+    const carousel = carouselContainer.querySelector(".carousel");
+    const items = carousel.querySelectorAll(".item");
+    const prevBtn = carouselContainer.querySelector(".prev-btn");
+    const nextBtn = carouselContainer.querySelector(".next-btn");
+
+    let index = 0;
+
+    function updateCarousel() {
+      const itemWidth = items[0].offsetWidth; // Calcula a largura do item
+      carousel.style.transform = `translateX(-${index * itemWidth}px)`; // Desloca com base na largura do item
+    }
+
+    prevBtn.addEventListener("click", function () {
+      if (index > 0) {
+        index--;
+        updateCarousel();
+      }
+    });
+
+    nextBtn.addEventListener("click", function () {
+      if (index < items.length - 1) {
+        index++;
+        updateCarousel();
+      }
+    });
+
+    // Atualiza o carrossel ao redimensionar a janela
+    window.addEventListener("resize", updateCarousel);
+  });
+});
+  
+</script>
+
+<script>
+// Inicializa o carrinho como um array vazio
+let cart = [];
+
+// Atualiza o contador do carrinho e o total
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  cartItems.innerHTML = '';
+
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = '<li>Seu carrinho está vazio.</li>';
+  } else {
+    cart.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.style.display = 'flex';
+      li.style.alignItems = 'center';
+      li.style.justifyContent = 'space-between';
+      li.style.marginBottom = '10px';
+
+      // Adiciona a imagem do item
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.title;
+      img.style.width = '50px';
+      img.style.height = '50px';
+      img.style.borderRadius = '5px';
+      img.style.marginRight = '10px';
+
+      // Adiciona o texto do item
+      const text = document.createElement('span');
+      text.textContent = `${item.quantity}x ${item.title} - R$ ${(item.price * item.quantity).toFixed(2)}`;
+
+      // Adiciona o botão de remover
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remover';
+      removeButton.style.backgroundColor = '#e74c3c';
+      removeButton.style.color = '#fff';
+      removeButton.style.border = 'none';
+      removeButton.style.padding = '5px 10px';
+      removeButton.style.borderRadius = '5px';
+      removeButton.style.cursor = 'pointer';
+      removeButton.onclick = () => {
+        removeFromCart(index);
+      };
+
+      // Adiciona os elementos ao item da lista
+      li.appendChild(img);
+      li.appendChild(text);
+      li.appendChild(removeButton);
+      cartItems.appendChild(li);
+
+      total += item.price * item.quantity;
+    });
+
+    // Adiciona o total ao final da lista
+    const totalLi = document.createElement('li');
+    totalLi.textContent = `Total: R$ ${total.toFixed(2)}`;
+    totalLi.style.fontWeight = 'bold';
+    cartItems.appendChild(totalLi);
+  }
+
+  // Atualiza o contador do carrinho
+  document.getElementById('cart-count').textContent = cart.length;
+}
+
+// Remove um item do carrinho
+function removeFromCart(index) {
+  cart.splice(index, 1); // Remove o item pelo índice
+  updateCart(); // Atualiza o carrinho
+}
+
+// Adiciona um item ao carrinho
+function addToCart(title, price, quantity, image) {
+  const existingItem = cart.find(item => item.title === title);
+
+  if (existingItem) {
+    existingItem.quantity += quantity;
+  } else {
+    cart.push({ title, price: parseFloat(price), quantity, image });
+  }
+
+  updateCart();
+  alert(`${quantity}x ${title} foi adicionado ao carrinho!`);
+}
+
+// Abre o modal do carrinho
+function openCart() {
+  updateCart();
+  document.getElementById('cart-modal').style.display = 'flex';
+}
+
+// Fecha o modal do carrinho
+function closeCart() {
+  document.getElementById('cart-modal').style.display = 'none';
+}
+
+// Modal de Compra
+const items = document.querySelectorAll('.item');
+const modal = document.getElementById('modal');
+const modalImage = document.getElementById('modal-image');
+const modalTitle = document.getElementById('modal-title');
+const modalPrice = document.getElementById('modal-price');
+const quantityInput = document.getElementById('quantity');
+const addToCartButton = document.getElementById('add-to-cart-button');
+
+function openModal(title, price, image) {
+  modalTitle.textContent = title;
+  modalPrice.textContent = `Preço: R$ ${price}`;
+  modalImage.src = image;
+  modal.style.display = 'flex';
+
+  // Configura o botão "Adicionar ao Carrinho"
+  addToCartButton.onclick = () => {
+    const quantity = parseInt(quantityInput.value);
+    addToCart(title, price, quantity, image);
+    modal.style.display = 'none'; // Fecha o modal após adicionar ao carrinho
+  };
+}
+
+// Fecha os modais (compra e carrinho)
+document.querySelectorAll('.close-modal').forEach(closeButton => {
+  closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.getElementById('cart-modal').style.display = 'none';
+  });
+});
+
+// Configura os eventos para os itens
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    const title = item.querySelector('p').textContent;
+    const price = item.getAttribute('data-price');
+    const image = item.getAttribute('data-image');
+    openModal(title, price, image);
+  });
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>
