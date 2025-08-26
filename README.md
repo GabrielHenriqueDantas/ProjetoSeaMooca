@@ -39,9 +39,8 @@ O site já está online e pode ser acessado através do link:
 
 sea-mooca/
 ├─ index.html
-├─ style.css
-├─ app.js
-├─ assets/ (imagens e ícones)
+├─ fonts
+├─ imagens
 └─ README.md
 
 
